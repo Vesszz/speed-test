@@ -9,8 +9,6 @@ char *keywords[32] = {
     "auto", "break", "case", "char", "const", "continue", "default", "do", "double", "else", "enum", "extern", "float", "for", "goto", "if", "int", "long", "register", "return", "short", "signed", "sizeof", "static", "struct", "switch", "typedef", "union", "unsigned", "void", "volatile", "while"
 };
 
-#define TEXT_LEN 1
-#define TEXT "123"
 #define RESET "\033[0m"
 #define BLACK "\033[1;30m"
 #define RED "\033[1;31m"
@@ -31,7 +29,7 @@ int main(){
 	int words_quanitity;
 	printf("%sEnter the quanitity: %s", BLACK, RESET);
 	scanf("%d", &words_quanitity);
-	char string_words[words_quanitity*8];
+	char *string_words = calloc(words_quanitity*7, 1);
 	srand(get_current_time_ms());
 	for (int word_number = 0; word_number < words_quanitity; ++word_number) {
 		int random_word_number = abs(rand()) % 32;
